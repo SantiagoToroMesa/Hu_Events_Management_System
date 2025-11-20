@@ -1,8 +1,9 @@
 package com.manage_system.Events.Controller;
 
-import com.manage_system.Events.DTO.EventDto;
+import com.manage_system.Events.DTO.EventCreateDto;
+import com.manage_system.Events.DTO.EventResponseDto;
 import com.manage_system.Events.Exception.ResourceNotFoundException;
-import com.manage_system.Events.Service.EventService;
+import com.manage_system.Events.Service.Interfaces.EventService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -21,15 +22,15 @@ public class EventController {
     @Operation(summary = "Get all events", description = "Retrieve a list of all events in the system")
     @ApiResponse(responseCode = "200", description = "List retrieved successfully")
     @GetMapping
-    public ResponseEntity<List<EventDto>> getAllEvents() {
+    public ResponseEntity<List<EventResponseDto>> getAllEvents() {
         return ResponseEntity.ok(eventService.getAll());
     }
 
     @Operation(summary = "Create a new event", description = "Add a new event to the system")
     @ApiResponse(responseCode = "200", description = "Event created successfully")
     @PostMapping
-    public ResponseEntity<EventDto> createEvent(@RequestBody EventDto eventDto) {
-        EventDto createdEvent = eventService.create(eventDto);
+    public ResponseEntity<EventResponseDto> createEvent(@RequestBody EventCreateDto eventDto) {
+        EventResponseDto createdEvent = eventService.create(eventDto);
         return ResponseEntity.ok(createdEvent);
     }
 
@@ -40,7 +41,7 @@ public class EventController {
             @ApiResponse(responseCode = "404", description = "Event not found"),
             @ApiResponse(responseCode = "400", description = "Invalid ID supplied")
     })
-    public ResponseEntity<EventDto> getEventById(@PathVariable int id) {
+    public ResponseEntity<EventResponseDto> getEventById(@PathVariable int id) {
         return eventService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Event not find with the id: " + id));
@@ -67,8 +68,8 @@ public class EventController {
     @ApiResponse(responseCode = "404", description = "Event not found")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<EventDto> updateEvent(@PathVariable int id, @RequestBody EventDto eventDto) {
-        EventDto updatedEvent = eventService.update(id, eventDto);
+    public ResponseEntity<EventResponseDto> updateEvent(@PathVariable int id, @RequestBody EventCreateDto eventDto) {
+        EventResponseDto updatedEvent = eventService.update(id, eventDto);
         if (updatedEvent != null) {
             return ResponseEntity.ok(updatedEvent);
         } else {
