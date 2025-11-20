@@ -1,50 +1,52 @@
 package com.manage_system.Events.Mapper;
 
-import com.manage_system.Events.DTO.VenueDto;
+import com.manage_system.Events.DTO.VenueCreateDto;
+import com.manage_system.Events.DTO.VenueResponseDto;
 import com.manage_system.Events.Entity.VenueEntity;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-11-13T06:42:17-0500",
+    date = "2025-11-19T12:09:00-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.8 (Eclipse Adoptium)"
 )
 @Component
 public class VenueMapperImpl implements VenueMapper {
 
     @Override
-    public VenueDto toDto(VenueEntity venue) {
+    public VenueResponseDto toDto(VenueEntity venue) {
         if ( venue == null ) {
             return null;
         }
 
-        VenueDto venueDto = new VenueDto();
+        VenueResponseDto venueResponseDto = new VenueResponseDto();
 
-        venueDto.setName( venue.getName() );
-        venueDto.setLocation( venue.getLocation() );
-        venueDto.setCapacity( venue.getCapacity() );
+        venueResponseDto.setName( venue.getName() );
+        venueResponseDto.setLocation( venue.getLocation() );
+        venueResponseDto.setVenueId( venue.getVenueId() );
+        venueResponseDto.setCapacity( venue.getCapacity() );
 
-        return venueDto;
+        return venueResponseDto;
     }
 
     @Override
-    public VenueEntity toEntity(VenueDto venueDto) {
-        if ( venueDto == null ) {
+    public VenueEntity toEntity(VenueCreateDto venueCreateDto) {
+        if ( venueCreateDto == null ) {
             return null;
         }
 
         VenueEntity venueEntity = new VenueEntity();
 
-        venueEntity.setName( venueDto.getName() );
-        venueEntity.setLocation( venueDto.getLocation() );
-        venueEntity.setCapacity( venueDto.getCapacity() );
+        venueEntity.setName( venueCreateDto.getName() );
+        venueEntity.setLocation( venueCreateDto.getLocation() );
+        venueEntity.setCapacity( venueCreateDto.getCapacity() );
 
         return venueEntity;
     }
 
     @Override
-    public void updateEntityFromDTO(VenueDto dto, VenueEntity entity) {
+    public void updateEntityFromDTO(VenueCreateDto dto, VenueEntity entity) {
         if ( dto == null ) {
             return;
         }

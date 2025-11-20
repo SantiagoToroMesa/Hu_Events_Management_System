@@ -1,9 +1,9 @@
-package com.manage_system.Events.Service;
+package com.manage_system.Events.Repository.Interfaces;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface GenericService <T, ID> {
+public interface GenericRepositoryInterface <T, ID> {
     T create(T entity);
     List<T> getAll();
     Optional<T> getById(ID id);

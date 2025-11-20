@@ -1,13 +1,12 @@
 package com.manage_system.Events.Controller;
 
-import com.manage_system.Events.DTO.EventDto;
-import com.manage_system.Events.DTO.VenueDto;
+import com.manage_system.Events.DTO.VenueCreateDto;
+import com.manage_system.Events.DTO.VenueResponseDto;
 import com.manage_system.Events.Exception.ResourceNotFoundException;
-import com.manage_system.Events.Service.VenueService;
+import com.manage_system.Events.Service.Interfaces.VenueService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +26,7 @@ public class VenueController {
     @Operation(summary = "Get all venues", description = "Retrieve a list of all venues in the system")
     @ApiResponse(responseCode = "200", description = "List retrieved successfully")
     @GetMapping
-    public ResponseEntity<List<VenueDto>> getAllVenues() {
+    public ResponseEntity<List<VenueResponseDto>> getAllVenues() {
         return ResponseEntity.ok(venueService.getAll());
     }
 
@@ -38,7 +37,7 @@ public class VenueController {
             @ApiResponse(responseCode = "400", description = "Invalid ID supplied")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<VenueDto> getVenueById(@PathVariable int id) {
+    public ResponseEntity<VenueResponseDto> getVenueById(@PathVariable int id) {
         return venueService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Venue not found with the id: " + id));
@@ -47,8 +46,8 @@ public class VenueController {
     @Operation(summary = "Create a new venue", description = "Add a new venue to the system")
     @ApiResponse(responseCode = "200", description = "Venue created successfully")
     @PostMapping
-    public ResponseEntity<VenueDto> createVenue(VenueDto venueDto) {
-        VenueDto createdVenue = venueService.create(venueDto);
+    public ResponseEntity<VenueResponseDto> createVenue(VenueCreateDto venueCreateDto) {
+        VenueResponseDto createdVenue = venueService.create(venueCreateDto);
         return ResponseEntity.ok(createdVenue);
     }
 
@@ -73,8 +72,8 @@ public class VenueController {
             @ApiResponse(responseCode = "404", description = "Venue not found")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<VenueDto> updateVenue(@PathVariable int id, @RequestBody VenueDto venueDto) {
-        VenueDto updatedVenue = venueService.update(id, venueDto);
+    public ResponseEntity<VenueResponseDto> updateVenue(@PathVariable int id, @RequestBody VenueCreateDto venueCreateDto) {
+        VenueResponseDto updatedVenue = venueService.update(id, venueCreateDto);
         if (updatedVenue != null) {
             return ResponseEntity.ok(updatedVenue);
         } else {
