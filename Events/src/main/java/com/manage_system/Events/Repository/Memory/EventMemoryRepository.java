@@ -1,4 +1,4 @@
-package com.manage_system.Events.Repository.Impl;
+package com.manage_system.Events.Repository.Memory;
 
 import com.manage_system.Events.Entity.EventEntity;
 import com.manage_system.Events.Repository.Interfaces.EventRepository;
@@ -41,7 +41,7 @@ public class EventMemoryRepository implements EventRepository {
                 e.setDescription(entity.getDescription());
                 e.setStartAt(entity.getStartAt());
                 e.setEndAt(entity.getEndAt());
-                e.setVenueId(entity.getVenueId());
+                e.setVenue(entity.getVenue());
                 return e;
             }
         }

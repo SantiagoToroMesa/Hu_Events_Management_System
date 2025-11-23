@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-11-19T12:09:00-0500",
+    date = "2025-11-23T16:45:32-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.8 (Eclipse Adoptium)"
 )
 @Component
@@ -22,9 +22,9 @@ public class VenueMapperImpl implements VenueMapper {
 
         VenueResponseDto venueResponseDto = new VenueResponseDto();
 
+        venueResponseDto.setVenueId( venue.getVenueId() );
         venueResponseDto.setName( venue.getName() );
         venueResponseDto.setLocation( venue.getLocation() );
-        venueResponseDto.setVenueId( venue.getVenueId() );
         venueResponseDto.setCapacity( venue.getCapacity() );
 
         return venueResponseDto;

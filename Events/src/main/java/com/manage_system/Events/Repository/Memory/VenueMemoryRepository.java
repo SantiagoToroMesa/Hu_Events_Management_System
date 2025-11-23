@@ -1,6 +1,5 @@
-package com.manage_system.Events.Repository.Impl;
+package com.manage_system.Events.Repository.Memory;
 
-import com.manage_system.Events.Entity.EventEntity;
 import com.manage_system.Events.Entity.VenueEntity;
 import com.manage_system.Events.Repository.Interfaces.VenueRepository;
 import org.springframework.stereotype.Repository;

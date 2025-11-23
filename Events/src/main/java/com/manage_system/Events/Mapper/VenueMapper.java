@@ -10,12 +10,8 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface VenueMapper {
 
-    @Mapping(source = "name", target = "name")
-    @Mapping(source = "location", target = "location")
     VenueResponseDto toDto(VenueEntity venue);
 
-    @Mapping(source = "name", target = "name")
-    @Mapping(source = "location", target = "location")
     VenueEntity toEntity(VenueCreateDto venueCreateDto);
 
     void updateEntityFromDTO(VenueCreateDto dto, @MappingTarget VenueEntity entity);

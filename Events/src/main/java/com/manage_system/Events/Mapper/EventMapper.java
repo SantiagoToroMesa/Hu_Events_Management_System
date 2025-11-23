@@ -6,12 +6,15 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {VenueIdMapper.class})
 public interface EventMapper {
-    @Mapping(source = "title", target = "title")
-    EventResponseDto toDto(EventEntity event);
-    @Mapping(source = "title", target = "title")
-    EventEntity toEntity(EventCreateDto eventDto);
+
+    @Mapping(source = "venueId", target = "venue")
+    EventEntity toEntity(EventCreateDto dto);
+
+    @Mapping(source = "venue", target = "venueId")
+    EventResponseDto toDto(EventEntity entity);
 
     void updateEntityFromDTO(EventCreateDto dto, @MappingTarget EventEntity entity);
 }
+
