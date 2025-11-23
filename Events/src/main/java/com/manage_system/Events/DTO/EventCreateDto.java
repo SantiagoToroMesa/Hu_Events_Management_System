@@ -1,5 +1,6 @@
 package com.manage_system.Events.DTO;
 
+import com.manage_system.Events.Entity.VenueEntity;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -21,5 +22,5 @@ public class EventCreateDto {
     @NotNull @Future
     private LocalDateTime endAt;
     @NotNull
-    private int venueId;
+    private Integer venueId;
 }

@@ -8,9 +8,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -75,5 +79,23 @@ public class EventController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @Operation(summary = "Get events by filter", description = "Retrieve a list of events filtered by city, category and date")
+    @ApiResponse(responseCode = "200", description = "List retrieved successfully")
+    @ApiResponses({
+            @ApiResponse(responseCode = "400", description = "Invalid parameters supplied")
+            ,@ApiResponse(responseCode = "404", description = "Event not found")
+    })
+    @GetMapping("/filter")
+    public ResponseEntity<Page<EventResponseDto>> filterEvents(
+            @RequestParam(required = false) String title,
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime startDate,
+            @RequestParam(required = false) Integer venueId,
+            Pageable pageable
+    ) {
+        return ResponseEntity.ok(
+                eventService.getFilteredEvents(title, startDate, venueId, pageable)
+        );
     }
 }

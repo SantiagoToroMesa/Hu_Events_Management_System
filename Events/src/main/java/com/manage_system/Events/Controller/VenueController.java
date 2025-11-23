@@ -8,9 +8,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -46,7 +47,7 @@ public class VenueController {
     @Operation(summary = "Create a new venue", description = "Add a new venue to the system")
     @ApiResponse(responseCode = "200", description = "Venue created successfully")
     @PostMapping
-    public ResponseEntity<VenueResponseDto> createVenue(VenueCreateDto venueCreateDto) {
+    public ResponseEntity<VenueResponseDto> createVenue(@RequestBody VenueCreateDto venueCreateDto) {
         VenueResponseDto createdVenue = venueService.create(venueCreateDto);
         return ResponseEntity.ok(createdVenue);
     }
@@ -79,6 +80,15 @@ public class VenueController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<Page<VenueResponseDto>>
+    filterVenues(@RequestParam(required = false) String name,
+                 @RequestParam(required = false) String location,
+                 @RequestParam(required = false) Integer capacity,
+                 Pageable pageable){
+        return ResponseEntity.ok(venueService.getFilteredVenues(name, location, capacity, pageable));
     }
 
 }

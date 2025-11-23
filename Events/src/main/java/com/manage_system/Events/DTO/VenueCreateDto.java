@@ -14,4 +14,5 @@ public class VenueCreateDto {
     @NotBlank
     private String location;
     private int capacity;
+
 }
