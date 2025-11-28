@@ -1,5 +1,6 @@
 package com.manage_system.Events.Infrastucture.controller.dto;
 
+import com.manage_system.Events.Entity.VenueEntity;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
