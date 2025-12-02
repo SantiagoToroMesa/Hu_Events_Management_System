@@ -1,4 +1,4 @@
-package com.manage_system.Events.Doc;
+package com.manage_system.Events.Config.Doc;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
