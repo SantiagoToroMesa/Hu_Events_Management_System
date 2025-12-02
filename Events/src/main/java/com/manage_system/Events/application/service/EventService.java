@@ -3,15 +3,22 @@ package com.manage_system.Events.application.service;
 import com.manage_system.Events.Domain.model.Event;
 import com.manage_system.Events.Domain.service.EventValidationService;
 import com.manage_system.Events.Infrastucture.mapper.EventMapper;
+import com.manage_system.Events.Infrastucture.persistence.entity.EventEntity;
 import com.manage_system.Events.application.port.In.Events.*;
 import com.manage_system.Events.application.port.Out.Events.EventRepositoryPort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EventService implements CreateEventUseCase, GetEventByIdUseCase, GetAllEventsUseCase, DeleteEventUseCase, UpdateEventUseCase {
+public class EventService implements CreateEventUseCase, GetEventByIdUseCase, GetAllEventsUseCase, DeleteEventUseCase, UpdateEventUseCase, FilterEventsUseCase {
+    @Override
+    public List<Event> filterEvents(Integer venueId, LocalDateTime start, LocalDateTime end) {
+        return eventRepositoryPort.filterEvents(venueId, start, end);
+    }
+
     private final EventRepositoryPort eventRepositoryPort;
     private final EventValidationService validationService;
 
@@ -47,4 +54,6 @@ public class EventService implements CreateEventUseCase, GetEventByIdUseCase, Ge
         validationService.validateNoDuplicate(event);
         return eventRepositoryPort.update(id, event);
     }
+
+
 }

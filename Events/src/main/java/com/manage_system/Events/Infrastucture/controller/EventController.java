@@ -8,9 +8,11 @@ import com.manage_system.Events.application.port.In.Events.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,14 +25,16 @@ public class EventController {
     private final GetAllEventsUseCase getAllEventsUseCase;
     private final UpdateEventUseCase updateEventUseCase;
     private final DeleteEventUseCase deleteEventUseCase;
+    private final FilterEventsUseCase filterEventsUseCase;
 
-    public EventController(EventMapper mapper, CreateEventUseCase createEventUseCase, GetEventByIdUseCase getEventByIdUseCase, GetAllEventsUseCase getAllEventsUseCase, UpdateEventUseCase updateEventUseCase, DeleteEventUseCase deleteEventUseCase) {
+    public EventController(EventMapper mapper, CreateEventUseCase createEventUseCase, GetEventByIdUseCase getEventByIdUseCase, GetAllEventsUseCase getAllEventsUseCase, UpdateEventUseCase updateEventUseCase, DeleteEventUseCase deleteEventUseCase, FilterEventsUseCase filterEventsUseCase) {
         this.mapper = mapper;
         this.createEventUseCase = createEventUseCase;
         this.getEventByIdUseCase = getEventByIdUseCase;
         this.getAllEventsUseCase = getAllEventsUseCase;
         this.updateEventUseCase = updateEventUseCase;
         this.deleteEventUseCase = deleteEventUseCase;
+        this.filterEventsUseCase = filterEventsUseCase;
     }
 
     @Operation(summary = "Create a new event", description = "Add a new event to the system")
@@ -92,4 +96,20 @@ public class EventController {
         }
         return ResponseEntity.ok(mapper.createDomainToDto(eventUpdated));
     }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<EventResponseDto>> filterEvents(
+            @RequestParam(required = false) Integer venueId,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end
+    ) {
+        List<Event> events = filterEventsUseCase.filterEvents(venueId, start, end);
+
+        return ResponseEntity.ok(
+                events.stream()
+                        .map(mapper::createDomainToDto)
+                        .toList()
+        );
+    }
+
 }
