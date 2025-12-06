@@ -5,54 +5,81 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0801effb-f32a-4a24-ab04-b3a4e9d058fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Domain/exception/DomainValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/port/In/Events/GetAllEventsUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Controller/EventController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Controller/VenueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/EventCreateDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/EventResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/EventResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/VenueResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/VenueResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Mapper/EventMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Mapper/VenueIdMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Mapper/VenueMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Repository/JPA/EventJPARepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Repository/JPA/VenueJPARepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Repository/Memory/EventMemoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Repository/Memory/VenueMemoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Impl/EventServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Impl/EventServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Impl/VenueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Impl/VenueServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Interfaces/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Interfaces/EventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Interfaces/VenueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Service/Interfaces/VenueService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/manage_system/Events/Mapper/EventMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/manage_system/Events/Mapper/VenueIdMapperImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/manage_system/Events/Mapper/VenueMapperImpl.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/config/MDCInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/spec/EventSpecifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/model/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/security/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/validation/DateRangeValid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/validation/DateRangeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/port/In/Events/FilterEventsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/resources/db/migration/V4__create_users_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Events/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Events/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Domain/exception/DuplicateEventException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Domain/exception/DuplicateEventException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/VenueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/VenueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/EventCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/controller/dto/EventCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/adapter/JpaEventRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/adapter/JpaEventRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/entity/EventEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/entity/EventEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/entity/VenueEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/entity/VenueEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/repository/SpringDataEventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/Infrastucture/persistence/repository/SpringDataEventRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/port/In/Events/GetEventByIdUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/port/In/Events/GetEventByIdUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/port/Out/Events/EventRepositoryPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/port/Out/Events/EventRepositoryPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/java/com/manage_system/Events/application/service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Events/src/main/resources/application-dev.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/Hu_3_Hexagonal_Refactory" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "SantiagoToroMesa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SantiagoToroMesa&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SantiagoToroMesa/Hu_Events_Management_System",
-    "accountId": "b687751c-77c4-4240-851b-5c16f363528b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SantiagoToroMesa/Hu_Events_Management_System&quot;,
+    &quot;accountId&quot;: &quot;b687751c-77c4-4240-851b-5c16f363528b&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="36AZhf9ogBXvrnNCqUJTefLqztw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,9 +90,11 @@
     "Application.EventsApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feature/Hu__3__Hexagonal__Refactory",
+    "git-widget-placeholder": "feature/Hu__5__Logs__JWT",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/broke/Downloads/JavaSpringboot/Events/Hu_Events_Management_System",

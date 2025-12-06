@@ -9,6 +9,7 @@ import com.manage_system.Events.application.port.In.Venues.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +36,7 @@ public class VenueController {
     }
 
     @PostMapping
-    public ResponseEntity<VenueResponseDto> createVenue(@RequestBody VenueCreateDto venueDto){
+    public ResponseEntity<VenueResponseDto> createVenue(@RequestBody @Valid VenueCreateDto venueDto){
         Venue venue = mapper.createDtoToDomain(venueDto);
         Venue venueCreated = createVenueUseCase.createVenue(venue);
         return ResponseEntity.ok(mapper.createDomainToDto(venueCreated));
@@ -83,7 +84,7 @@ public class VenueController {
             @ApiResponse(responseCode = "404", description = "Venue not found")
     })
     @PutMapping("{id}")
-    public ResponseEntity<VenueResponseDto> updateVenue (@PathVariable int id, @RequestBody VenueCreateDto venueDto){
+    public ResponseEntity<VenueResponseDto> updateVenue (@PathVariable int id, @RequestBody @Valid VenueCreateDto venueDto){
         Venue venue = mapper.createDtoToDomain(venueDto);
         Venue venueUpdated = updateVenueUseCase.updateVenue(id, venue);
         if (venueUpdated == null) {
