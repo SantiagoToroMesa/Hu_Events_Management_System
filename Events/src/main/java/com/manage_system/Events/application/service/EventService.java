@@ -40,11 +40,9 @@ public class EventService implements CreateEventUseCase, GetEventByIdUseCase, Ge
 
     @Override
     public void deleteEvent(Integer id) {
-        // 1. Verificar si el evento existe. Si no existe, lanza EntityNotFoundException.
         eventRepositoryPort.getEventById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot delete. Event with ID " + id + " not found."));
 
-        // 2. Si existe, procede a borrarlo.
         eventRepositoryPort.delete(id);
     }
 

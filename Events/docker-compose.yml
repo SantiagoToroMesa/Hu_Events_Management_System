@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # 1. Servicio de la Aplicación Spring Boot (Events Management System)
+  events-app:
+    # Asume que tienes un Dockerfile en el directorio actual
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Mapeo de puertos para acceder a la aplicación desde el host (http://localhost:8080)
+    ports:
+      - "8080:8080"
+
+    # Variables de entorno para sobrescribir la URL de la base de datos.
+    # Usamos el nombre del servicio 'mysql-db' en lugar de 'localhost'
+    environment:
+      # Sobrescribimos la URL para apuntar al contenedor 'mysql-db'
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/eventsdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+    # Depende de que el servicio de base de datos esté levantado
+    depends_on:
+      - mysql-db
+
+    # Permite a la aplicación esperar a que MySQL esté realmente listo
+    # (Recomendado para entornos de Docker-Compose)
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u$$MYSQL_USER", "-p$$MYSQL_PASSWORD" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s # Darle tiempo inicial para que se levante
+
+  # 2. Servicio de la Base de Datos MySQL
+  mysql-db:
+    image: mysql:8.0 # Usar una imagen compatible con tu conector
+
+    # Mapeo de puertos para acceder a MySQL desde tu máquina local (opcional, pero útil)
+    ports:
+      - "3307:3306"
+
+    # Variables de entorno para configurar la base de datos
+    environment:
+      MYSQL_ROOT_PASSWORD: root        # Debe coincidir con spring.datasource.password
+      MYSQL_DATABASE: eventsdb         # Debe coincidir con el nombre de tu base de datos
+
+    # Persistencia de datos (recomendado por las buenas prácticas)
+    # Esto guarda los datos de la DB incluso si el contenedor se detiene y se reinicia
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+# Definición de volúmenes para persistencia
+volumes:
+  mysql_data:
